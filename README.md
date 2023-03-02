@@ -8,13 +8,13 @@
 
 ## КРАТКАЯ ИНФОРМАЦИЯ
 
-1. Запуск через консоль ```rb python -m crypto_tracking```
+1. Запуск через консоль ```python -m crypto_tracking```
 
 2. Синхронное реализовано на парсинге с сайта [coingecko](https://www.coingecko.com/en/coins/ethereum.md)
 
 3. Использовал нереляционную БД Redis
 
-4. Данные REDIS_HOST и REDIS_PORT помещены в .env, корректные данные закомментированы на всякий случай в файле ```rb __main__```
+4. Данные REDIS_HOST и REDIS_PORT помещены в .env, корректные данные закомментированы на всякий случай в файле ```__main__```
 
 5. Цикл обновления данных 30 секунд. (constanta UPDATE_TIME)
 
