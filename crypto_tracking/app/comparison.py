@@ -28,7 +28,6 @@ class CryptoTracking():
         '''
         Метод преобразует полученные данные в удобочитаемый вид
         '''
-        print(self.price)
         ready_price = self.price[1:].replace(',', '') # убираем из строки знак $ и запятую
         return float(ready_price)
 
@@ -56,6 +55,5 @@ class CryptoTracking():
                 print(f'{now_time} ФЬЮЧЕРС ETHUSDT ВЫРОС ↑\n{(ready_price - max_price).__round__(2)}$ ↑\n'
                     f'{(((current_percent-max_percent)/max_percent)*100).__round__(3)} % ↑\n'
                     f'ТЕКУЩИЙ КУРС {ready_price} ↑')
-        print(ready_list)
         return self.cache.lpush('ready_list', ready_price)
 

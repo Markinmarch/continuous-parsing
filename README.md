@@ -10,4 +10,14 @@
 
 1. Запуск через консоль ```rb python -m crypto_tracking```
 
-2. Синхронное реализовано на парсинге с сайта [a link](https://www.coingecko.com/en/coins/ethereum.md)
+2. Синхронное реализовано на парсинге с сайта [coingecko](https://www.coingecko.com/en/coins/ethereum.md)
+
+3. Данные REDIS_HOST и REDIS_PORT помещены в .env
+
+4. Цикл обновления данных 30 секунд. (constanta UPDATE_TIME)
+
+5. Архив выслал на телеграм.
+
+6. Ссылка на [репозиторий](https://github.com/Markinmarch/continuous-parsing.md)
+
+7. Протестировано.
