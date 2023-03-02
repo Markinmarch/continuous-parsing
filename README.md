@@ -12,12 +12,14 @@
 
 2. Синхронное реализовано на парсинге с сайта [coingecko](https://www.coingecko.com/en/coins/ethereum.md)
 
-3. Данные REDIS_HOST и REDIS_PORT помещены в .env
+3. Использовал нереляционную БД Redis
 
-4. Цикл обновления данных 30 секунд. (constanta UPDATE_TIME)
+4. Данные REDIS_HOST и REDIS_PORT помещены в .env, корректные данные закомментированы на всякий случай в файле ```rb __main__```
 
-5. Архив выслал на телеграм.
+5. Цикл обновления данных 30 секунд. (constanta UPDATE_TIME)
 
-6. Ссылка на [репозиторий](https://github.com/Markinmarch/continuous-parsing.md)
+6. Архив выслал на телеграм.
+
+7. Ссылка на [репозиторий](https://github.com/Markinmarch/continuous-parsing.md)
 
 7. Протестировано.
