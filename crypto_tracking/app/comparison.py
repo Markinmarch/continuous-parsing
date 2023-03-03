@@ -38,7 +38,8 @@ class CryptoTracking():
         '''
         ready_price = self.data_prepare()
         ready_list = [float(item) for item in self.cache.lrange('ready_list', 0, -1)] # redis сохраняет данные в список, оборачивая в str
-        if ready_list == []:                                                          # поэтому, чтобы сохранить формат, приходится дважды
+        if ready_list == []:
+            print(f'{now_time} НАЧАЛО РАБОТЫ. ТЕКУЩИЙ КУРС ФЬЮЧЕРСА ETHUSDT {ready_price}')                                                          # поэтому, чтобы сохранить формат, приходится дважды
             return self.cache.lpush('ready_list', ready_price)                        # преобразовывать в float
         else:
             current_percent = ready_price/100
