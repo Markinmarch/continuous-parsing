@@ -22,4 +22,4 @@
 
 7. Ссылка на [репозиторий](https://github.com/Markinmarch/continuous-parsing.md)
 
-7. Протестировано.
+8. Протестировано.
