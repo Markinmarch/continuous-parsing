@@ -51,7 +51,7 @@ class CryptoTracking():
                 print(f'{now_time} ФЬЮЧЕРС ETHUSDT УПАЛ НА ↓{(min_price - ready_price).__round__(2)}$ '
                     f'↓{((((min_percent-current_percent)/min_percent)*100)).__round__(3)} % '
                     f'ТЕКУЩИЙ КУРС ↓{ready_price}$')
-            elif current_percent + 1 > max_percent + 1: # если меньше 1 %
+            elif current_percent + 1 > max_percent: # если меньше 1 %
                 print(f'{now_time} ФЬЮЧЕРС ETHUSDT ВЫРОС НА ↑{(ready_price - max_price).__round__(2)}$ '
                     f'↑{((((current_percent-max_percent)/max_percent)*100)).__round__(3)} % '
                     f'ТЕКУЩИЙ КУРС ↑{ready_price}$')
