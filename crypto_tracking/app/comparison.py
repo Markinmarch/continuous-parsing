@@ -48,7 +48,6 @@ class CryptoTracking():
                 min_price = min(ready_list)
                 max_percent = max_price/100
                 min_percent = min_price/100
-                print(max_percent - min_percent)
                 if (current_percent + 1) < min_percent: 
                     print(f'{now_time} ФЬЮЧЕРС ETHUSDT УПАЛ НА ↓{(min_price - ready_price).__round__(2)}$ '
                         f'↓{((((min_percent-current_percent)/min_percent)*100)).__round__(3)} % '
