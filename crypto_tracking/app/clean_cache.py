@@ -3,7 +3,7 @@
 '''
 
 
-def cleaning_timer(cache):
+def cleaning_cache(cache):
     cache.rpop('ready_list')
 
 

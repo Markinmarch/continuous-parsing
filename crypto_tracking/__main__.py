@@ -11,8 +11,8 @@ from redis import StrictRedis
 
 from crypto_tracking.app.comparison import CryptoTracking
 from crypto_tracking.app.parser import search_course
-from crypto_tracking.app.clean_cache import cleaning_timer
-from crypto_tracking.settings.config import REDIS_HOST, REDIS_PORT, URL_PARSE, UPDATE_TIME, HOUR
+from crypto_tracking.app.clean_cache import cleaning_cache
+from crypto_tracking.settings.config import REDIS_HOST, REDIS_PORT, URL_PARSE, HOUR
 
 
 if not REDIS_HOST or not REDIS_PORT:
@@ -37,6 +37,7 @@ def main():
         cache
         )
     crypto_control.data_comparison()
+    return crypto_control.data_comparison()
 
         
 if __name__ == '__main__':
@@ -44,11 +45,9 @@ if __name__ == '__main__':
     timer = time.monotonic() + HOUR
     while time.monotonic() < timer:
         main()
-        time.sleep(UPDATE_TIME)
     else:
+        list_len = len(main())
         while True:
             main()
-            cleaning_timer(cache)
-            time.sleep(UPDATE_TIME)
-
-
+            if len(main()) > list_len: # если длина списка увеличилась - тогда удаляем, т.к мы собераем только неповторяющиеся данные
+                cleaning_cache(cache)
