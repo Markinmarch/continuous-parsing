@@ -12,7 +12,7 @@ from redis import StrictRedis
 from crypto_tracking.app.comparison import CryptoTracking
 from crypto_tracking.app.parser import search_course
 from crypto_tracking.app.clean_cache import cleaning_cache
-from crypto_tracking.settings.config import REDIS_HOST, REDIS_PORT, URL_PARSE, HOUR
+from crypto_tracking.settings.config import REDIS_HOST, REDIS_PORT, URL_PARSE, HOUR, DIFFERENT_PERSENT
 
 
 if not REDIS_HOST or not REDIS_PORT:
@@ -33,6 +33,7 @@ cache = StrictRedis(
 def main():
     crypto_price = asyncio.run(search_course(URL_PARSE))
     crypto_control = CryptoTracking(
+        DIFFERENT_PERSENT,
         crypto_price,
         cache
         )
