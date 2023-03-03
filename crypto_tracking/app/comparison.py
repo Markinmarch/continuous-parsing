@@ -54,6 +54,6 @@ class CryptoTracking():
             elif current_percent > max_percent:
                 print(f'{now_time} ФЬЮЧЕРС ETHUSDT ВЫРОС НА ↑{(ready_price - max_price).__round__(2)}$ '
                     f'↑{((((current_percent-max_percent)/max_percent)*100)+1).__round__(3)} % '
-                    f'ТЕКУЩИЙ КУРС ↑{ready_price}$ ↑')
+                    f'ТЕКУЩИЙ КУРС ↑{ready_price}$')
         return self.cache.lpush('ready_list', ready_price)
 
