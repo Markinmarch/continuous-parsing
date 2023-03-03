@@ -16,10 +16,8 @@
 
 4. Данные REDIS_HOST и REDIS_PORT помещены в .env, корректные данные закомментированы на всякий случай в файле ```__main__```
 
-5. Цикл обновления данных 30 секунд. (constanta UPDATE_TIME)
+5. Архив выслал на телеграм.
 
-6. Архив выслал на телеграм.
+6. Ссылка на [репозиторий](https://github.com/Markinmarch/continuous-parsing.md)
 
-7. Ссылка на [репозиторий](https://github.com/Markinmarch/continuous-parsing.md)
-
-8. Протестировано.
+7. Протестировано.
