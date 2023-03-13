@@ -7,10 +7,7 @@
 '''
 
 
-from datetime import datetime
-
-
-now_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+import logging
 
 
 class CryptoTracking():
@@ -41,7 +38,7 @@ class CryptoTracking():
         ready_price = self.data_prepare()
         ready_list = [float(item) for item in self.cache.lrange('ready_list', 0, -1)]           # redis сохраняет данные в список, оборачивая в str
         if ready_list == []:                                                                    # поэтому, чтобы сохранить формат, приходится дважды
-            print(f'{now_time} НАЧАЛО РАБОТЫ. ТЕКУЩИЙ КУРС ФЬЮЧЕРСА ETHUSDT {ready_price}')     # преобразовывать в float                                                        
+            logging.info(f'НАЧАЛО РАБОТЫ. ТЕКУЩИЙ КУРС ФЬЮЧЕРСА ETHUSDT {ready_price}')     # преобразовывать в float                                                        
             return self.cache.lpush('ready_list', ready_price)                        
         else:
             if ready_price not in ready_list: # если цена не содержится в списке, то записываем, так бережём память
@@ -51,12 +48,12 @@ class CryptoTracking():
                 max_percent = max_price/100
                 min_percent = min_price/100
                 if (current_percent + self.DP) < min_percent: 
-                    print(f'{now_time} ФЬЮЧЕРС ETHUSDT УПАЛ НА ↓{(min_price - ready_price).__round__(2)}$ '
-                        f'↓{((((min_percent-current_percent)/min_percent)*100)).__round__(3)} % '
+                    logging.info(f'ФЬЮЧЕРС ETHUSDT УПАЛ НА ↓{(min_price - ready_price).__round__(2)}$ '
+                        f'↓{(((min_percent-current_percent)/min_percent)*100).__round__(3)} % '
                         f'ТЕКУЩИЙ КУРС ↓{ready_price}$')
                 elif current_percent > (max_percent + self.DP): 
-                    print(f'{now_time} ФЬЮЧЕРС ETHUSDT ВЫРОС НА ↑{(ready_price - max_price).__round__(2)}$ '
-                        f'↑{((((current_percent-max_percent)/max_percent)*100)).__round__(3)} % '
+                    logging.info(f'ФЬЮЧЕРС ETHUSDT ВЫРОС НА ↑{(ready_price - max_price).__round__(2)}$ '
+                        f'↑{(((current_percent-max_percent)/max_percent)*100).__round__(3)} % '
                         f'ТЕКУЩИЙ КУРС ↑{ready_price}$')
                 return self.cache.lpush('ready_list', ready_price)
             return ready_list
